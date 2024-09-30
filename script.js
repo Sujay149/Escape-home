@@ -41,30 +41,46 @@ let currentLevel = 0;
 function checkAnswer() {
     const userAnswer = document.getElementById("answer-input").value.toLowerCase();
     const resultMessage = document.getElementById("result-message");
+    const nextButton = document.getElementById("next-btn");
 
+    // Correct answer
     if (userAnswer === levels[currentLevel].answer) {
         resultMessage.style.color = "green";
-        resultMessage.textContent = "Correct! Moving to the next level...";
-        currentLevel++;
-
-        if (currentLevel < levels.length) {
-            setTimeout(loadNextLevel, 1000);
-        } else {
-            resultMessage.textContent = "Congratulations! You've found the key and completed the game!";
-            document.getElementById("level-container").innerHTML = '<h2>Game Completed</h2>';
-        }
+        resultMessage.textContent = "Correct! Click 'Next' to move to the next level.";
+        
+        // Enable "Next" button and disable "Submit" button
+        nextButton.disabled = false;
+        document.getElementById("submit-btn").disabled = true;  
     } else {
+        // Wrong answer
         resultMessage.style.color = "red";
         resultMessage.textContent = "Wrong answer, try again!";
     }
 }
 
 function loadNextLevel() {
-    document.getElementById("level-title").textContent = `Level ${currentLevel + 1}`;
-    document.getElementById("clue-text").textContent = levels[currentLevel].clue;
-    document.getElementById("level-image").src = levels[currentLevel].image; // Update image
-    document.getElementById("answer-input").value = ""; // Clear previous answer
-    document.getElementById("answer-input").placeholder = `Enter your answer for Level ${currentLevel + 1}`; // Update placeholder
-    document.getElementById("result-message").textContent = ""; // Clear result message
-    document.getElementById("answer-input").focus(); // Focus on input field
+    const nextButton = document.getElementById("next-btn");
+    const submitButton = document.getElementById("submit-btn");
+
+    currentLevel++; // Move to the next level
+
+    // Check if the current level is within the levels array
+    if (currentLevel < levels.length) {
+        // Update the content for the new level
+        document.getElementById("level-title").textContent = `Level ${currentLevel + 1}`;
+        document.getElementById("clue-text").textContent = levels[currentLevel].clue;
+        document.getElementById("answer-input").value = ""; // Clear the previous answer
+        document.getElementById("answer-input").placeholder = `Enter your answer for Level ${currentLevel + 1}`; // Update placeholder
+        document.getElementById("result-message").textContent = ""; // Clear the result message
+
+        // Reset button states
+        submitButton.disabled = false; // Re-enable "Submit" button
+        nextButton.disabled = true;  // Disable "Next" button until a new answer is correct
+
+        // Focus on the answer input for the next level
+        document.getElementById("answer-input").focus();
+    } else {
+        // If there are no more levels, show game completion message
+        document.getElementById("level-container").innerHTML = '<h2>Congratulations! You\'ve completed the game!</h2>';
+    }
 }

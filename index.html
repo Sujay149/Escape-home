@@ -6,20 +6,28 @@
     <title>Escape Home Game</title>
     <link rel="stylesheet" href="styless.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
+    <!-- Body Background Logos -->
+    
+    <div class="body-logo body-logo-right" style="background-image: url('logo.png');"></div>
+
     <div class="game-container">
+        
+        <!-- Game Content -->
         <h1>Escape Home Game</h1>
         <div id="level-container">
             <h2 id="level-title">Level 1</h2>
             <p id="clue-text">Solve this: What has keys but can't open locks?</p>
             <input type="text" id="answer-input" placeholder="Enter your answer">
-            <button id="submit-btn" onclick="checkAnswer()">Submit Answer</button>
+            <div>
+            <button id="submit-btn" onclick="checkAnswer()" width="5px">Submit</button>
+      
+            <button id="next-btn" onclick="loadNextLevel()" width="5px" disabled>Next</button>
+            </div>
             <p id="result-message"></p>
-            <button id="next-button" onclick="loadNextLevel()" style="display: none;">Next Level</button>
-
-        </div>
+            
+        </div>  
     </div>
 
     <script src="script.js"></script>

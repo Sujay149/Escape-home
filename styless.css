@@ -1,8 +1,8 @@
-
 /* General body settings */
 body {
-    font-family: 'Roboto', sans-serif; /* More modern font */
+    font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #4e73df, #1cc88a);
+    background-color: #fff;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -11,21 +11,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* Set position relative for absolute positioning inside */
+}
+
+
+.body-logo {
+    position: absolute;
+    width: 90px; /* Adjust the size of the logo */
+    height: 90px;
+    border-radius: 50%; /* Circular shape */
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.body-logo-right {
+    top: 20px;
+    right: 50px;
 }
 
 .game-container {
-    background-color: rgba(255, 255, 255, 0.1); /* Transparent card-like background */
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 40px 30px;
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 600px;
-    backdrop-filter: blur(10px); /* Modern glass-like effect */
+    backdrop-filter: blur(10px);
     transition: all 0.3s ease-in-out;
 }
 
 .game-container:hover {
-    transform: scale(1.05); /* Slight scaling on hover for interactivity */
+    transform: scale(1.05);
 }
 
 h1 {
@@ -68,7 +88,7 @@ h2#level-title {
     box-shadow: 0 0 10px #1cc88a, 0 0 15px #1cc88a;
 }
 
-#submit-btn, #next-button {
+#submit-btn, #next-btn {
     padding: 15px 30px;
     background-color: #1cc88a;
     color: white;
@@ -80,9 +100,11 @@ h2#level-title {
     transition: all 0.2s ease;
 }
 
-#submit-btn:hover, #next-button:hover {
-    background-color: #17a673;
+#submit-btn:hover, #next-btn:hover {
+    background-color: #13c084;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    width: 158px; 
+    padding: 15px 30px;
 }
 
 #result-message {
@@ -92,10 +114,7 @@ h2#level-title {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-#next-button {
-    display: none;
-    margin-top: 20px;
-}
+
 
 .clue-image {
     width: 100%;
