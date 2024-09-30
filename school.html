@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Home Game</title>
+    <link rel="stylesheet" href="styless.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="game-container">
+        <h1>Escape Home Game</h1>
+        <div id="level-container">
+            <h2 id="level-title">Level 1</h2>
+            <p id="clue-text">Solve this: What has keys but can't open locks?</p>
+            <input type="text" id="answer-input" placeholder="Enter your answer">
+            <button id="submit-btn" onclick="checkAnswer()">Submit Answer</button>
+            <p id="result-message"></p>
+            <button id="next-button" onclick="loadNextLevel()" style="display: none;">Next Level</button>
+
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
